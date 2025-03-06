@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.6/Sortable.min.js" integrity="sha512-csIng5zcB+XpulRUa+ev1zKo7zRNGpEaVfNB9On1no9KYTEY/rLGAEEpvgdw6nim1WdTuihZY1eqZ31K7/fZjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+
+h6{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+</style>
+</head>
+<body>
+    <!-- <form action=""> -->
+   <div action="" id="container" value="" class="grid grid-cols-3 w-fit justify-self-center wrapper mt-32 border p-4 border-black rounded-lg ">
+
+        <div  id="div1" draggable="true" class="card"> <h6 value="1" class=" box first-box  w-28 h-28 text-4xl bg-blue-300 " id="btn1" draggable="true" >1</h6> </div>
+        <div class="card" > <h6 value="2" id="btn2" draggable="true" class=" box second-box w-28 h-28 text-4xl bg-orange-400" >2</h6>
+        </div>
+        <div class="card"  > <h6 value="3" draggable="true" id="btn3" class=" box third-box  w-28 h-28 text-4xl bg-yellow-400 ">3</h6> </div>
+        <div class="card" > <h6 value="4" draggable="true" id="btn4" class=" box fourth-box w-28 h-28 text-4xl  bg-purple-500">4</h6> </div>
+        <div class="card" > <h6 value="5" draggable="true" id="btn5" class=" box fifth-box w-28 h-28 text-4xl bg-gray-500 ">5</h6> </div>
+        <div class="card" > <h6 value="6" draggable="true" id="btn6" class=" box sixth-box  w-28 h-28 text-4xl bg-red-500">6</h6> </div>
+        <div class="card" > <h6 value="7" draggable="true" id="btn7" class=" box seventh-box  w-28 h-28  text-4xl bg-green-500">7</h6> </div>
+        <div class="card" > <h6 value="8" draggable="true" id="btn8" class=" box eighth-box  w-28 h-28  text-4xl bg-[#ca6f1e] ">8</h6> </div>
+        <div class="card" > <h6 value="9" draggable="true" id="btn9" class=" box ninth-box  w-28 h-28  text-4xl bg-[#BDB76B] ">9</h6> </div>
+    </div>
+
+
+     <div class="flex justify-center  gap-10  ">
+
+<div class="flex flex-col pt-6" >
+        <h1  id="download"></h1>
+
+        <!-- <h5 id="btn" class="border  cursor-pointer rounded-lg border-black p-2 " onclick="" >Start  </h5> -->
+    </div>        
+
+
+
+<button class="justify-self-center flex mt-4 border border-black  self-center "  onclick="changetext(),ChangeText(),CHANGEtext(),Changetext(),CHANGETEXT(),CHANGEText(),CHANGE(),Change(),change()" >   
+   Shuffle
+</button>
+</div>
+
+
+<p id="demo"  class="flex   border-2 border-black rounded-lg p-2 w-fit justify-self-center  " >00:00</p>
+
+
+<button class="flex justify-self-center border border-black px-2 rounded-lg mt-4"  onclick="myFunction()" >Start game</button>
+
+
+<!-- </form> -->
+<!-- 
+<form action=""><button type="submit" onclick="SubmitEvent()" value="Submit">Click to submit</button></form> -->
+
+<form id="form-id" action="" onclick="submit"  >
+    <button type="submit"  onclick="SubmitEvent" value="Submit">Click to submit</button>
+</form>
+
+
+
+<script>
+ 
+
+
+
+
+
+// form.addEventListener('submit',event =>{
+//     event.preventDefault();
+//     alert('submitted')
+// })
+
+
+ function myFunction() {
+
+
+        let count = 9 ;
+    const timer = setInterval(function(){
+        count--;
+document.getElementById("demo").innerHTML = "00:" + count
+
+const boxes = document.querySelectorAll(".box");
+        let valuesArray = [];
+        let correctvalue = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        let value = "box";
+
+        let text = "Lists numbers are" + boxes;
+        boxes.forEach((box) => {
+          valuesArray.push(Number(box.innerHTML));
+        });
+
+if(count === 0){
+            if (  JSON.stringify(valuesArray) === JSON.stringify(correctvalue)) {
+            alert("You win");
+            } else {
+            alert("You lose");
+            }
+
+       
+
+
+clearInterval(timer);
+console.log("time's up")
+}
+
+},1000);
+
+
+
+        
+     
+
+
+   }
+
+
+//    const form = document.querySelector('form')
+//              const formId = document.getElementById('form-id');
+            
+//              form.addEventListener('submit',(event) =>{
+//              event.preventDefault();
+//              alert('submitted')
+//             } )
+
+
+
+
+   
+
+//    var downloadButton = document.getElementById("download");
+// var counter = 5;
+// var newElement = document.createElement("p");
+// newElement.innerHTML = "";
+// var id;
+
+
+// var clickbtn = document.getElementById("btn");
+
+// clickbtn.onclick = startDownload;
+
+// downloadButton.parentNode.replaceChild(newElement, downloadButton);
+
+
+
+
+
+// function startDownload() {
+   
+
+//    // this.style.display = 'none';
+
+//    id = setInterval(function () {
+
+//        counter--;
+
+//        if (counter  0){ 
+ 
+
+//        } else{
+     
+//            newElement.innerHTML = "00:" +counter.toString() ;
+//        }
+       
+
+//    },1000 );
+
+// };
+
+
+   
+
+
+
+
+    const wrapper = document.querySelector('.wrapper')
+
+// Drag and Drop section  starts
+const dragArea = document.querySelector(".wrapper");
+new Sortable(dragArea)
+
+// Drag and Drop section ends
+
+
+
+
+ 
+
+function changetext(){
+    if(btn1.innerHTML == '1'){
+        btn1.innerHTML = '9'
+        
+    }
+    else if(btn1.innerHTML == '9') {
+        btn1.innerHTML = '6'
+    }
+    
+    else if(btn1.innerHTML == '6'){
+        btn1.innerHTML = '8'
+
+    }
+    else if(btn1.innerHTML == '8'){
+        btn1.innerHTML = '5'
+
+    }
+    else if(btn1.innerHTML == '5'){
+        btn1.innerHTML = '4'
+
+    }
+    else if(btn1.innerHTML == '4'){
+        btn1.innerHTML = '3'
+
+    }
+    else if(btn1.innerHTML == '3'){
+        btn1.innerHTML = '2'
+
+    }
+    else if(btn1.innerHTML == '2'){
+        btn1.innerHTML = '7'
+
+    }
+    else if(btn1.innerHTML == '7'){
+        btn1.innerHTML = '1'
+
+    } 
+}
+
+function CHANGEtext(){
+    if(btn2.innerHTML == '1'){
+        btn2.innerHTML = '9'
+    }
+    else if(btn2.innerHTML == '9') {
+        btn2.innerHTML = '6'
+    }
+    else if(btn2.innerHTML == '6'){
+        btn2.innerHTML = '8'
+
+    }
+    else if(btn2.innerHTML == '8'){
+        btn2.innerHTML = '5'
+
+    }
+    else if(btn2.innerHTML == '5'){
+        btn2.innerHTML = '4'
+
+    }
+    else if(btn2.innerHTML == '4'){
+        btn2.innerHTML = '3'
+
+    }
+    else if(btn2.innerHTML == '3'){
+        btn2.innerHTML = '2'
+
+    }
+    else if(btn2.innerHTML == '2'){
+        btn2.innerHTML = '7'
+
+    }
+    else if(btn2.innerHTML == '7'){
+        btn2.innerHTML = '1'
+
+    } 
+
+}
+
+function ChangeText(){
+    if(btn3.innerHTML == '1'){
+        btn3.innerHTML = '9'
+    }
+    else if(btn3.innerHTML == '9') {
+        btn3.innerHTML = '6'
+    }
+    else if(btn3.innerHTML == '6'){
+        btn3.innerHTML = '8'
+
+    }
+    else if(btn3.innerHTML == '8'){
+        btn3.innerHTML = '5'
+
+    }
+    else if(btn3.innerHTML == '5'){
+        btn3.innerHTML = '4'
+
+    }
+    else if(btn3.innerHTML == '4'){
+        btn3.innerHTML = '3'
+
+    }
+    else if(btn3.innerHTML == '3'){
+        btn3.innerHTML = '2'
+
+    }
+    else if(btn3.innerHTML == '2'){
+        btn3.innerHTML = '7'
+
+    }
+    else if(btn3.innerHTML == '7'){
+        btn3.innerHTML = '1'
+
+    } 
+
+}
+
+function Changetext(){
+    if(btn4.innerHTML == '1'){
+        btn4.innerHTML = '9'
+    }
+ 
+    else if(btn4.innerHTML == '9') {
+        btn4.innerHTML = '6'
+    }
+    else if(btn4.innerHTML == '6'){
+        btn4.innerHTML = '8'}
+   
+    
+    else if(btn4.innerHTML == '8'){
+        btn4.innerHTML = '5'
+    }
+  
+
+    else if(btn4.innerHTML == '5'){
+        btn4.innerHTML = '4'
+
+    }
+    else if(btn4.innerHTML == '4'){
+        btn4.innerHTML = '3'
+
+    }
+    else if(btn4.innerHTML == '3'){
+        btn4.innerHTML = '2'
+
+    }
+    else if(btn4.innerHTML == '2'){
+        btn4.innerHTML = '7'
+
+    }
+    else if(btn4.innerHTML == '7'){
+        btn4.innerHTML = '1'
+
+    } 
+
+}
+
+function CHANGETEXT(){
+    if(btn5.innerHTML == '1'){
+        btn5.innerHTML = '9'
+    }
+    else if(btn5.innerHTML == '9') {
+        btn5.innerHTML = '6'
+    }
+    else if(btn5.innerHTML == '6'){
+        btn5.innerHTML = '8'
+
+    }
+    else if(btn5.innerHTML == '8'){
+        btn5.innerHTML = '5'
+
+    }
+    else if(btn5.innerHTML == '5'){
+        btn5.innerHTML = '4'
+
+    }
+    else if(btn5.innerHTML == '4'){
+        btn5.innerHTML = '3'
+
+    }
+    else if(btn5.innerHTML == '3'){
+        btn5.innerHTML = '2'
+
+    }
+    else if(btn5.innerHTML == '2'){
+        btn5.innerHTML = '7'
+
+    }
+    else if(btn5.innerHTML == '7'){
+        btn5.innerHTML = '1'
+
+    } 
+
+}
+
+function CHANGEText(){
+    if(btn6.innerHTML == '1'){
+        btn6.innerHTML = '9'
+    }
+    else if(btn6.innerHTML == '9') {
+        btn6.innerHTML = '6'
+    }
+    else if(btn6.innerHTML == '6'){
+        btn6.innerHTML = '8'
+
+    }
+    else if(btn6.innerHTML == '8'){
+        btn6.innerHTML = '5'
+
+    }
+    else if(btn6.innerHTML == '5'){
+        btn6.innerHTML = '4'
+
+    }
+    else if(btn6.innerHTML == '4'){
+        btn6.innerHTML = '3'
+
+    }
+    else if(btn6.innerHTML == '3'){
+        btn6.innerHTML = '2'
+
+    }
+    else if(btn6.innerHTML == '2'){
+        btn6.innerHTML = '7'
+
+    }
+    else if(btn6.innerHTML == '7'){
+        btn6.innerHTML = '1'
+
+    } 
+
+}
+
+function CHANGE(){
+    if(btn7.innerHTML == '1'){
+        btn7.innerHTML = '9'
+    }
+    else if(btn7.innerHTML == '9') {
+        btn7.innerHTML = '6'
+    }
+    else if(btn7.innerHTML == '6'){
+        btn7.innerHTML = '8'
+
+    }
+    else if(btn7.innerHTML == '8'){
+        btn7.innerHTML = '5'
+
+    }
+    else if(btn7.innerHTML == '5'){
+        btn7.innerHTML = '4'
+
+    }
+    else if(btn7.innerHTML == '4'){
+        btn7.innerHTML = '3'
+
+    }
+    else if(btn7.innerHTML == '3'){
+        btn7.innerHTML = '2'
+
+    }
+    else if(btn7.innerHTML == '2'){
+        btn7.innerHTML = '7'
+
+    }
+    else if(btn7.innerHTML == '7'){
+        btn7.innerHTML = '1'
+
+    } 
+
+}
+
+function Change(){
+    if(btn8.innerHTML == '1'){
+        btn8.innerHTML = '9'
+    }
+    else if(btn8.innerHTML == '9') {
+        btn8.innerHTML = '6'
+    }
+    else if(btn8.innerHTML == '6'){
+        btn8.innerHTML = '8'
+
+    }
+    else if(btn8.innerHTML == '8'){
+        btn8.innerHTML = '5'
+
+    }
+    else if(btn8.innerHTML == '5'){
+        btn8.innerHTML = '4'
+
+    }
+    else if(btn8.innerHTML == '4'){
+        btn8.innerHTML = '3'
+
+    }
+    else if(btn8.innerHTML == '3'){
+        btn8.innerHTML = '2'
+
+    }
+    else if(btn8.innerHTML == '2'){
+        btn8.innerHTML = '7'
+
+    }
+    else if(btn8.innerHTML == '7'){
+        btn8.innerHTML = '1'
+
+    } 
+
+}
+
+function change(){
+    if(btn9.innerHTML == '1'){
+        btn9.innerHTML = '9'
+    }
+    else if(btn9.innerHTML == '9') {
+        btn9.innerHTML = '6'
+    }
+    else if(btn9.innerHTML == '6'){
+        btn9.innerHTML = '8'
+
+    }
+    else if(btn9.innerHTML == '8'){
+        btn9.innerHTML = '5'
+
+    }
+    else if(btn9.innerHTML == '5'){
+        btn9.innerHTML = '4'
+
+    }
+    else if(btn9.innerHTML == '4'){
+        btn9.innerHTML = '3'
+
+    }
+    else if(btn9.innerHTML == '3'){
+        btn9.innerHTML = '2'
+
+    }
+    else if(btn9.innerHTML == '2'){
+        btn9.innerHTML = '7'
+
+    }
+    else if(btn9.innerHTML == '7'){
+        btn9.innerHTML = '1'
+
+    } 
+
+}
+
+
+// box1
+const box1 = document.querySelector('.first-box')
+const button = document.querySelector("button")
+const colors =['purple','orange','brown','violet','pink','blue','green','yellow','orange','red']
+
+
+box1.style.backgroundColor= 'violet';
+
+button.addEventListener('click',function(){
+    const colorIndex=parseInt(Math.random()*colors.length);
+    box1.style.backgroundColor=colors[colorIndex]
+})
+
+
+
+// box2
+const box2 = document.querySelector('.second-box')
+const button2 = document.querySelector("button")
+const color2=['brown','yellow','violet','#11d8d3','green',]
+
+box2.style.backgroundColor = 'blue';
+
+
+
+
+button2.addEventListener('click',function(){
+    const colorIndex=parseInt(Math.random()*color2.length);
+    box2.style.backgroundColor=color2[colorIndex]
+})
+
+
+
+const box3 = document.querySelector('.third-box');
+const button3 = document.querySelector("button");
+const color3=['#782e72','#16db93','#3211d6','#9c283e','orange','#7289cf',,'#5e4c50','#cf7872',]
+
+box3.style.backgroundColor = 'orange';
+
+
+
+
+button3.addEventListener('click',function(){
+    const colorIndex=parseInt(Math.random()*color3.length);
+    box3.style.backgroundColor=color3[colorIndex]
+})
+
+
+
+const box4 = document.querySelector('.fourth-box')
+const button4 = document.querySelector("button")
+const color4=[,'#bad436','#87d436','#d43636',,'#367bd4','#8536d4','#d43668','#d48c36','#36d4b0']
+
+box4.style.backgroundColor = '#d43636';
+
+
+
+
+button3.addEventListener('click',function(){
+    const colorIndex=parseInt(Math.random()*color4.length);
+    box4.style.backgroundColor=color4[colorIndex]
+})
+
+
+
+
+const box5 = document.querySelector('.fifth-box')
+const button5 = document.querySelector("button")
+const color5=['#fc00fc','#3900fc','#95a788','#5cc6a6','#fc0000','#fca400','#00fca4','#3d00fc']
+
+box5.style.backgroundColor = '#fc0000';
+
+
+
+
+button5.addEventListener('click',function(){
+    const colorIndex=parseInt(Math.random()*color5.length);
+    box5.style.backgroundColor=color5[colorIndex]
+})
+
+
+
+
+const box6 = document.querySelector('.sixth-box')
+const button6 = document.querySelector("button")
+const color6=['#5db8c8',,'#5dc8b6','#c85d5d','#6ec85d',,'#a6c85d','#5dc8ad','#c8ad5d']
+
+box6.style.backgroundColor = '#6ec85d';
+
+
+
+
+button6.addEventListener('click',function(){
+    const colorIndex=parseInt(Math.random()*color6.length);
+    box6.style.backgroundColor=color6[colorIndex]
+})
+
+
+
+const box7 = document.querySelector('.seventh-box')
+const button7 = document.querySelector("button")
+const color7=['#5b5b0c',,'#8b0c5f','#2f5b0c','#0c5b18','#0c8b66','#0c6c8b','#5b0c0c','#5b250c']
+
+box7.style.backgroundColor = '#8b0c5f';
+
+
+
+
+button7.addEventListener('click',function(){
+    const colorIndex=parseInt(Math.random()*color7.length);
+    box7.style.backgroundColor=color7[colorIndex]
+})
+
+
+
+const box8 = document.querySelector('.eighth-box')
+const button8 = document.querySelector("button")
+const color8=['#48d73f','#d73fb9','#d73f6f','#d7d53f','#2b4a50','#79d73f']
+
+
+box8.style.backgroundColor = '#2b4a50';
+
+
+
+
+button8.addEventListener('click',function(){
+    const colorIndex=parseInt(Math.random()*color8.length);
+    box8.style.backgroundColor=color8[colorIndex]
+})
+
+
+
+const box9 = document.querySelector('.ninth-box')
+const button9 = document.querySelector("button")
+const color9=[,'#bb6f42',,'#cbb5ad','#335a7d','#11d8d3','#fbd375','#60bde6','#4d182c','#4c819d','#464c55']
+
+
+box9.style.backgroundColor = '#60bde6';
+
+button9.addEventListener('click',function(){
+    const colorIndex=parseInt(Math.random()*color9.length);
+    box9.style.backgroundColor=color9[colorIndex]
+})
+
+
+
+
+
+
+
+</script>
+ 
+</body>
+</html>
