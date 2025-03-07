@@ -20,8 +20,7 @@ h6{
 </style>
 </head>
 <body>
-    <!-- <form action=""> -->
-   <div action="" id="container" value="" class="grid grid-cols-3 w-fit justify-self-center wrapper mt-32 border p-4 border-black rounded-lg ">
+   <div id="container" value="" class="grid grid-cols-3 w-fit justify-self-center wrapper mt-32 border p-4 border-black rounded-lg ">
 
         <div  id="div1" draggable="true" class="card"> <h6 value="1" class=" box first-box  w-28 h-28 text-4xl bg-blue-300 " id="btn1" draggable="true" >1</h6> </div>
         <div class="card" > <h6 value="2" id="btn2" draggable="true" class=" box second-box w-28 h-28 text-4xl bg-orange-400" >2</h6>
@@ -35,13 +34,12 @@ h6{
         <div class="card" > <h6 value="9" draggable="true" id="btn9" class=" box ninth-box  w-28 h-28  text-4xl bg-[#BDB76B] ">9</h6> </div>
     </div>
 
+    <div class="flex justify-center  gap-10  ">
 
-     <div class="flex justify-center  gap-10  ">
-
-<div class="flex flex-col pt-6" >
+<!-- <div class="flex flex-col pt-6" >
         <h1  id="download"></h1>
 
-        <!-- <h5 id="btn" class="border  cursor-pointer rounded-lg border-black p-2 " onclick="" >Start  </h5> -->
+        <h5 id="btn" class="border  cursor-pointer rounded-lg border-black p-2 "> Start  </h5>
     </div>        
 
 
@@ -52,46 +50,112 @@ h6{
 </div>
 
 
-<p id="demo"  class="flex   border-2 border-black rounded-lg p-2 w-fit justify-self-center  " >00:00</p>
+<button class="flex justify-self-center border border-black px-2 rounded-lg mt-4"  onclick="myFunction()" >click</button> -->
 
 
-<button class="flex justify-self-center border border-black px-2 rounded-lg mt-4"  onclick="myFunction()" >Start game</button>
+<div class="flex justify-center gap-10">
+  <div class="flex flex-col pt-6">
+    <h1 id="download"></h1>
+
+    <!-- <h5 id="btn" class="border  cursor-pointer rounded-lg border-black p-2 " onclick="" >Start  </h5> -->
+  </div>
+
+  <div class="flex mt-4 gap-6 items-center">
+    <button
+      class="border border-black rounded-sm px-6 bg-blue-200 font-semibold text-lg"
+      onclick="changetext(),ChangeText(),CHANGEtext(),Changetext(),CHANGETEXT(),CHANGEText(),CHANGE(),Change(),change()">
+      Shuffle
+    </button>
 
 
-<!-- </form> -->
-<!-- 
-<form action=""><button type="submit" onclick="SubmitEvent()" value="Submit">Click to submit</button></form> -->
 
-<form id="form-id" action="" onclick="submit"  >
-    <button type="submit"  onclick="SubmitEvent" value="Submit">Click to submit</button>
-</form>
+    <p id="demo"  class="flex w-fit justify-self-center">00:60</p>
+<p id="demoo" ></p>
 
 
+
+    <button
+      type="submit"
+      onclick="submit(),stopCount()"
+      class="border border-black rounded-sm px-6 bg-blue-200 font-semibold text-lg"
+      value="" id="" >
+      submit
+    </button>
+
+    <h3 onclick="    timer(),changetext(),ChangeText(),CHANGEtext(),Changetext(),CHANGETEXT(),CHANGEText(),CHANGE(),Change(),change()"   class="cursor-pointer" >Start</h3>
+  </div>
+</div>
+
+<!-- <button onclick="startCount()">Start count!</button>
+<input type="text" id="demo">
+<button onclick="stopCount()">Stop count!</button>
+ -->
 
 <script>
- 
+// let counter = 20;
+// let timeout;
+// let timer_on = 0;
+
+// function timedCount(){
+// document.getElementById("demoo").value = counter;
+// counter--;
+// timeout = setTimeout(timedCount,1000);
+
+// }
+
+// function startCount() {
+//   if (!timer_on) {
+//     timer_on = 1;
+//     timedCount();
+//   }
+// }
+
+// function stopCount() {
+//   clearTimeout(timeout);
+//   timer_on = 0;
+// }
+
+function timer() {
+        let count = 20;
+        const timer = setInterval(function () {
+          count--;
+          document.getElementById("demo").innerText = "00:" + count;
+
+     if (count === 0) {
+            clearTimeout(timer)
+
+            myFunction()              
+              
+          }else{
+   
+
+          }
+        }
+        , 1000);
 
 
 
 
 
-// form.addEventListener('submit',event =>{
-//     event.preventDefault();
-//     alert('submitted')
-// })
 
 
- function myFunction() {
+
+      }
+       
 
 
-        let count = 9 ;
-    const timer = setInterval(function(){
-        count--;
-document.getElementById("demo").innerHTML = "00:" + count
 
-const boxes = document.querySelectorAll(".box");
+      function submit(){
+  myFunction()
+}
+
+
+
+      function myFunction() {
+        const timer = document.querySelector("#demo").innerHTML = "00:00";
+        const boxes = document.querySelectorAll(".box");
         let valuesArray = [];
-        let correctvalue = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let correctvalue = [1,2, 3, 4, 5, 6, 7, 8, 9];
 
         let value = "box";
 
@@ -99,87 +163,54 @@ const boxes = document.querySelectorAll(".box");
         boxes.forEach((box) => {
           valuesArray.push(Number(box.innerHTML));
         });
+        const form = document.querySelector("form");
+        const formId = document.getElementById("form-id");
 
-if(count === 0){
-            if (  JSON.stringify(valuesArray) === JSON.stringify(correctvalue)) {
-            alert("You win");
-            } else {
-            alert("You lose");
-            }
+        if (JSON.stringify(valuesArray) === JSON.stringify(correctvalue  )){
 
+          
+          alert("You win")
+          clearInterval(null)
+        } else {
        
+          alert("You lose");
+          clearInterval(null)
+        }
+
+      }
 
 
-clearInterval(timer);
-console.log("time's up")
-}
-
-},1000);
 
 
+
+
+
+//     function myFunction(){
+        
+//         const boxes = document.querySelectorAll(".box")
+//         let value = "box"
+//         let text = "Lists numbers are" + boxes
+//         boxes.forEach((box)=>{
+//         console.log(box.innerHTML)
 
         
-     
+// const array = [box.innerHTML]
+// // console.log(array)
+
+// let newarray = array.values();
+
+// for (let value in newarray){
+//     console.log(value)
+// }
 
 
-   }
+// console.log(newarray)
 
 
-//    const form = document.querySelector('form')
-//              const formId = document.getElementById('form-id');
-            
-//              form.addEventListener('submit',(event) =>{
-//              event.preventDefault();
-//              alert('submitted')
-//             } )
-
-
-
-
-   
-
-//    var downloadButton = document.getElementById("download");
-// var counter = 5;
-// var newElement = document.createElement("p");
-// newElement.innerHTML = "";
-// var id;
-
-
-// var clickbtn = document.getElementById("btn");
-
-// clickbtn.onclick = startDownload;
-
-// downloadButton.parentNode.replaceChild(newElement, downloadButton);
-
-
-
-
-
-// function startDownload() {
-   
-
-//    // this.style.display = 'none';
-
-//    id = setInterval(function () {
-
-//        counter--;
-
-//        if (counter  0){ 
- 
-
-//        } else{
-     
-//            newElement.innerHTML = "00:" +counter.toString() ;
-//        }
-       
-
-//    },1000 );
-
-// };
-
-
-   
-
+    // }
+    // )
+    // // console.log(boxes)
+    // }
 
 
 
@@ -192,7 +223,43 @@ new Sortable(dragArea)
 // Drag and Drop section ends
 
 
+// var downloadButton = document.getElementById("download");
 
+// var counter = 6;
+
+// var newElement = document.createElement("p");
+
+// newElement.innerHTML = "";
+
+// var id;
+
+// downloadButton.parentNode.replaceChild(newElement, downloadButton);
+
+// function startDownload() {
+
+//     this.style.display = 'none';
+
+//     id = setInterval(function () {
+
+//         counter--;
+
+//         if (counter < 0) { 
+    
+            
+            
+
+//         } else{
+      
+//             newElement.innerHTML = "00:" +counter.toString() ;
+//         }
+
+//     },1000 );
+
+// };
+
+// var clickbtn = document.getElementById("btn");
+
+// clickbtn.onclick = startDownload;
 
  
 
@@ -595,7 +662,6 @@ const button4 = document.querySelector("button")
 const color4=[,'#bad436','#87d436','#d43636',,'#367bd4','#8536d4','#d43668','#d48c36','#36d4b0']
 
 box4.style.backgroundColor = '#d43636';
-
 
 
 
